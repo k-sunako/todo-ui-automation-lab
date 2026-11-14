@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <title>TODO — ひとつずつ</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="masthead">
+      <a class="brand" href="#" aria-label="TODOリスト ホーム">
+        <span class="brand-mark" aria-hidden="true">✓</span>
+        <span class="brand-name">little steps</span>
+      </a>
+      <p class="masthead-note">今日の自分に、ちょうどいい一歩を。</p>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">YOUR DAILY SPACE</p>
+      <h1 id="page-title">やることを、<span>ひとつずつ。</span></h1>
+      <p class="hero-copy">書き出して、ひとつ終えて。またひとつ。</p>
+    </section>
+
+    <section class="todo-card" aria-labelledby="tasks-heading">
+      <form id="add-form" class="add-form">
+        <label class="visually-hidden" for="task-input">新しいタスク</label>
+        <input
+          id="task-input"
+          name="task"
+          type="text"
+          maxlength="160"
+          placeholder="次にやることは？"
+          autocomplete="off"
+          required
+        >
+        <button class="add-button" type="submit">
+          <span class="add-icon" aria-hidden="true">＋</span>
+          <span>追加する</span>
+        </button>
+      </form>
+
+      <div class="list-heading-row">
+        <div>
+          <p class="eyebrow list-eyebrow">MY LIST</p>
+          <h2 id="tasks-heading">今日のタスク</h2>
+        </div>
+        <p id="task-summary" class="task-summary" aria-live="polite">タスクはまだありません</p>
+      </div>
+
+      <div class="list-toolbar">
+        <div id="filter-group" class="filter-group" role="group" aria-label="タスクを絞り込む">
+          <button class="filter-button is-selected" type="button" data-filter="all" aria-pressed="true">すべて</button>
+          <button class="filter-button" type="button" data-filter="active" aria-pressed="false">未完了</button>
+          <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">完了済み</button>
+        </div>
+        <button id="clear-completed" class="text-button" type="button" disabled>完了を片づける</button>
+      </div>
+
+      <ul id="todo-list" class="todo-list" aria-label="タスク一覧"></ul>
+      <div id="empty-state" class="empty-state" role="status">
+        <span class="empty-sparkle" aria-hidden="true">✳</span>
+        <p id="empty-title">まだタスクはありません</p>
+        <p id="empty-copy">上の入力欄から、最初の一歩を追加しましょう。</p>
+      </div>
+      <p id="live-message" class="visually-hidden" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <footer class="page-footer">
+      <span class="footer-dot" aria-hidden="true"></span>
+      <span>このブラウザーに自動保存されます</span>
+    </footer>
+  </main>
+</body>
+</html>
